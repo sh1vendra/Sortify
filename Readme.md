@@ -35,9 +35,9 @@ continuous chat. We have a team of 5: Saurav Rijal, Shivendra Bhagat, Aaditya Ba
 
 ## Features
 List the ready features here:
-- Automated summarise of files
-- Autmated organising of user files
-- Efficient Retrieval of data
+- Document organization system, Feature name: Document Organizer, used by student 
+- Automated summarizing of files, Feature name: Document Summarizer, used by student 
+- Efficient Retrieval of data, Feature name: Document Retriever, used by student
 
 
 ## Screenshots
