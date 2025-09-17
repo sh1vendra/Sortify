@@ -42,7 +42,8 @@ List the ready features here:
 
 ## Screenshots
 
-![alt text](image.png)
+<img width="720" height="720" alt="image" src="https://github.com/user-attachments/assets/2b861aa4-6b60-411c-9e16-0b951b638bee" />
+
 
 
 ## Setup
