@@ -184,16 +184,24 @@ Contributors
    * KAN-87, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/sortify/commits/branch/KAN-87-refactor-the-profile-page-section)
 
 
-   **Saurav**: ""
+   **Saurav**: "Work on integrating database with category assignment, changes, notifications and fetching information."
 
-* **Jira Task: Saurav -**
-   * KAN-79, [Bitbucket]()
-* **Jira Task: Saurav -**
-   * KAN-28, [Bitbucket]()
-* **Jira Task: Saurav -**
-   * KAN-30, [Bitbucket]()
-* **Jira Task: Saurav -**
-   * KAN-33, [Bitbucket]()
+* **Jira Task: Saurav - Design database schema for efficient storage and easier retrieval**
+   * KAN-90, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/%7B87739b3b-6b07-4488-ba64-3919c2017f46%7D/branch/feature/KAN-90-work-on-having-better-database-sc)
+* **Jira Task: Saurav - Improve accuracy of categories assignment and fix the notification toast**
+   * KAN-2, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/%7B87739b3b-6b07-4488-ba64-3919c2017f46%7D/branch/feature/KAN-2-work-on-better-having-better-accur)
+   * KAN-2, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/%7B87739b3b-6b07-4488-ba64-3919c2017f46%7D/branch/KAN-2-work-on-better-having-better-accur)
+
+* **Jira Task: Saurav -Fix the state changes on drag and drop feature**
+   * KAN-3, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/%7B87739b3b-6b07-4488-ba64-3919c2017f46%7D/branch/feature/KAN-3-fix-the-state-changes-on-drag-and-)
+* **Jira Task: Saurav - Detects auplicate files and assigns a unique name**
+   * KAN-44, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/%7B87739b3b-6b07-4488-ba64-3919c2017f46%7D/branch/KAN-44-smart-duplicate-detection-as-a-st)
+* **Jira Task: Saurav - Display all files when a user clicks on a particular category**
+      * KAN-36, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/%7B87739b3b-6b07-4488-ba64-3919c2017f46%7D/branch/KAN-36-allow-users-to-click-a-course-nam)
+* **Jira Task: Saurav - Implement loading spinners, error messages if the API call fails, and a friendly message if no documents exist.**
+      * KAN-42, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/%7B87739b3b-6b07-4488-ba64-3919c2017f46%7D/branch/KAN-42-implement-loading-spinners-error-)
+* **Jira Task: Saurav -Unit Tests for features and results**
+      * KAN-107, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/%7B87739b3b-6b07-4488-ba64-3919c2017f46%7D/branch/KAN-107-test-execution-and-results)
 
   Abhishek Verma Allamneni: ""
 
@@ -206,43 +214,100 @@ Contributors
 
 
 
-## Next Steps
-
-**Aaditya**: 
-
-* Implementing chatbot functionality
-* Integrating Gemini Pro to Chatbot
-* Applying RAG to chatbot to get filtered result
-
-**Shivendra**:
- * Refactor CSS of the landing page
- * Refactor ui of documents categories 
- * Implement functional profile section to the dashboard
- 
-**Saurav**:
-* Refined Categorization of documents
-* Making the RAG work
-* Fixing state change on changing categories
-
-**Abheek**
-* Working on optimizing backend
-* Adding full stack features
-* Working on ML features
-
-
-
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+### Prerequisites
+- Python 3.11 or higher
+- pip (Python package manager)
+
+### Dependencies
+The project dependencies are listed in `requirements.txt` located at:
+```
+sortify/embedding/requirements.txt
+```
+
+Key dependencies include:
+- **FastAPI** (0.117.1) - Web framework for building the API
+- **Uvicorn** (0.37.0) - ASGI server for running FastAPI
+- **Google Generative AI** (0.8.5) - For AI-powered features
+- **Sentence Transformers** (5.1.1) - For document embeddings and semantic search
+- **PyTorch** (2.8.0) - Deep learning framework
+- **pypdf** (5.2.0) - For PDF processing
+- **Supabase** - Database and authentication (configured via environment variables)
+
+### Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd sortify
+   ```
+
+2. **Set up Python virtual environment** (recommended)
+   ```bash
+   cd embedding
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install Python dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Configure environment variables**
+   - Copy the `.env` file to `embedding/.env` and configure the following:
+     - `GOOGLE_API_KEY` - Your Google AI API key
+     - `SUPABASE_URL` - Your Supabase project URL
+     - `SUPABASE_KEY` - Your Supabase API key
+
+5. **Install frontend dependencies**
+   ```bash
+   cd ../sortify_app
+   npm install
+   ```
 
 
 ## Usage
-- Clone the repo
-- Install dependencies through requirements.txt
 
-`
-    pip install -r requirements.txt
+### Running the Backend (Python/FastAPI)
+
+1. Navigate to the embedding directory:
+   ```bash
+   cd sortify/embedding
+   ```
+
+2. Activate your virtual environment:
+   ```bash
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Start the FastAPI server:
+   ```bash
+   uvicorn app:app --reload
+   ```
+   The API will be available at `http://localhost:8000`
+
+### Running the Frontend (React/Vite)
+
+1. Navigate to the sortify_app directory:
+   ```bash
+   cd sortify/sortify_app
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:5173`
+
+### Using the Application
+
+1. **Sign up/Login** - Create an account or log in with your credentials
+2. **Upload Documents** - Upload your PDF files and they will be automatically organized
+3. **Search** - Use the AI-powered search to find specific content across all your documents
+4. **Chat** - Interact with the chatbot to ask questions about your uploaded documents
+5. **Organize** - Documents are automatically categorized into folders based on their content
 
 
 ## Project Status
