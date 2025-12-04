@@ -170,16 +170,19 @@ Contributors
 * **Jira Task: Aaditya -Testing the chatbot using unit test cases**
    * KAN-10, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/sortify/branch/KAN-10-testing-the-chatbot-using-unit-te)
 
-  **Shivendra**: ""
+  **Shivendra**: "1. As a student, I want to have a smooth user experience of the landing page, As a student, I want a dashboard that shows all my documents so that I can navigate through them easily, As a user, I want the site to work well on mobile so that I can use it anywhere."
 
-* **Jira Task: Shivendra -**
-   * KAN-85, [Bitbucket]()
-* **Jira Task: Shivendra -**
-   * KAN-81, [Bitbucket]()
-* **Jira Task: Shivendra -**
-   * KAN-78, [Bitbucket]()
-* **Jira Task: Shivendra -**
-   * KAN-84, [Bitbucket]()
+* **Jira Task: Shivendra -Planning unit tests**
+   * KAN-109, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/sortify/commits/branch/KAN-109-planning-unit-tests)
+* **Jira Task: Shivendra -Refactor and update the CSS design of the landing page**
+   * KAN-80, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/sortify/commits/branch/KAN-80-refactor-and-update-the-css)
+* **Jira Task: Shivendra -Implementation of unit tests**
+   * KAN-110, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/sortify/commits/branch/KAN-110-implementation-of-unit-tests)
+* **Jira Task: Shivendra -Develop and upload the logo for the project**
+   * KAN-40, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/sortify/commits/branch/KAN-40-develop-and-upload-the-logo)
+* **Jira Task: Shivendra -Refactor the Profile page section and break down into smaller reusable components**
+   * KAN-87, [Bitbucket](https://bitbucket.org/cs3398-zabraks-f25/sortify/commits/branch/KAN-87-refactor-the-profile-page-section)
+
 
    **Saurav**: ""
 
