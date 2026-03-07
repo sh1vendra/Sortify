@@ -1,17 +1,19 @@
 # Sortify 🧠
 
-**An AI-powered document organization and retrieval platform for students**  
-Built with **React, FastAPI, PostgreSQL, and PGVector**, Sortify intelligently categorizes uploaded files, stores their embeddings, and enables **semantic search** through a **Retrieval-Augmented Generation (RAG)** pipeline.
+An AI-powered document organization and retrieval platform that automatically categorizes academic files and enables semantic search through a RAG pipeline.
 
 ---
 
-## 🚀 Overview
+## What It Does
 
-Sortify transforms the way students manage their academic files.  
-Simply upload your PDFs, notes, or assignments — Sortify automatically categorizes, embeds, and stores them for quick retrieval.  
-With the integrated AI assistant, you can query your files in natural language and instantly get context-aware answers.
+- **Automatic categorization** — Upload PDFs, lecture notes, or assignments and Sortify classifies them into relevant folders without manual sorting.
+- **Semantic search** — Query your documents in natural language using vector embeddings and retrieval-augmented generation (RAG) to surface relevant content.
+- **AI chat assistant** — Ask questions about your uploaded files and receive context-aware answers grounded in your actual documents.
+- **Responsive dashboard** — Access, browse, and manage all organized documents from a clean, mobile-friendly interface.
 
 ---
+
+## Screenshots
 
 ### Login Page
 ![Login Page](./sortify_app/public/loginpage.png)
@@ -24,63 +26,65 @@ With the integrated AI assistant, you can query your files in natural language a
 
 ---
 
-
-## 🧩 Tech Stack
+## Tech Stack
 
 | Layer | Technologies |
-|:------|:--------------|
-| **Frontend** | React, TypeScript, Vite, TailwindCSS |
-| **Backend** | Python, FastAPI |
-| **Database** | PostgreSQL with PGVector extension |
-| **AI / ML** | RAG (Retrieval-Augmented Generation), Embeddings, Vector Similarity Search |
-| **Infrastructure** | Supabase, Node.js, npm, Vite Dev Server |
-| **Version Control** | Git + GitHub |
+|:------|:-------------|
+| Frontend | React, TypeScript, Vite, TailwindCSS |
+| Backend | Python, FastAPI |
+| Database | PostgreSQL, PGVector |
+| AI / ML | RAG, Sentence Transformers, Vector Similarity Search |
+| Infrastructure | Supabase, Node.js |
+| Version Control | Git + GitHub |
 
 ---
 
-## 🧠 Key Features
+## Architecture
 
-- **Automated Categorization:**  
-  Sortify classifies uploaded academic documents (e.g., assignments, lecture notes, research papers) into relevant folders automatically.
-
-- **AI-Powered Search (RAG):**  
-  Retrieve specific information from stored documents using semantic search powered by vector embeddings and RAG.
-
-- **Document Chunking & Embedding:**  
-  Uploaded files are tokenized into chunks, converted into embeddings, and stored in PGVector for high-precision context retrieval.
-
-- **Chat-Based Interface:**  
-  Interact with your data through a chatbot integrated with the RAG pipeline — ask questions about your uploaded files and get contextual answers.
-
-- **FastAPI + PostgreSQL Integration:**  
-  Efficient API architecture that handles file uploads, embedding generation, and vector similarity queries.
-
-- **Responsive UI:**  
-  A modern, minimal interface built with React, Tailwind, and Vite — designed for productivity and clarity.
+The system follows a standard RAG pipeline. Uploaded documents are parsed, split into chunks, and converted into vector embeddings using Sentence Transformers. These embeddings are stored in PostgreSQL via the PGVector extension. When a user submits a query — either through search or the chat assistant — the query is embedded, matched against stored vectors using cosine similarity, and the top-matching chunks are passed as context to a language model to generate a grounded response. Document categorization runs as a background task on upload, assigning files to folders based on content analysis.
 
 ---
 
-## System Architecture
+## My Contributions
 
-Frontend (React) --> FastAPI Backend --> PostgreSQL (PGVector)
+**Shivendra Bhagat** — Frontend engineering across 3 sprints:
 
-↑ ↓
-
-User Uploads Embeddings / Chunking
-
-↑ ↓
-
-RAG Query <------ Vector Retrieval + LLM Response
-
+- Initialized the React + Vite project, established the codebase structure, and configured the build toolchain
+- Designed and implemented the main dashboard layout, landing page UI components, and navigation structure
+- Built the chatbot interface and integrated the trigger flow from the AI Search action on the dashboard
+- Developed the user profile section and refactored it into smaller, reusable components
+- Implemented responsive design across all views and tested layouts on multiple screen sizes
+- Refactored and restructured CSS across the dashboard and landing page for maintainability
+- Designed the project logo and branding assets
+- Planned and implemented frontend unit tests using Vitest
 
 ---
 
-## 💡 Future Enhancements
+## Getting Started
 
-Google Drive & Canvas integration for auto-sync
+**Prerequisites:** Node.js, Python 3.11+
 
-Multi-user collaboration with shared folders
+```bash
+# Clone the repository
+git clone https://github.com/sh1vendra/Sortify.git
+cd sortify
 
-Fine-tuned local LLM for faster retrieval
+# Frontend
+cd sortify_app
+npm install
+npm run dev                # → http://localhost:3000
 
-Inline document preview & annotation system
+# Backend (separate terminal)
+cd embedding
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app:app --reload   # → http://localhost:8000
+```
+
+**Environment variables** — Create `embedding/.env` with:
+```
+GOOGLE_API_KEY=<your-key>
+SUPABASE_URL=<your-url>
+SUPABASE_KEY=<your-key>
+```
